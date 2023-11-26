@@ -8,6 +8,9 @@ services:
     environment:
       MYSQL_DATABASE: playground
       MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./mysql/init.d:/docker-entrypoint-initdb.d
 
   debezium:
     image: debezium/connect:2.4.1.Final
