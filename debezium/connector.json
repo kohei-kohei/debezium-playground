@@ -1,0 +1,25 @@
+{
+  "name": "debezium-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "database.history.kafka.bootstrap.servers": "kafka-broker:29092",
+    "database.history.kafka.topic": "history.playgound",
+    "database.hostname": "mysql",
+    "database.port": "3306",
+    "database.user": "root",
+    "database.password": "password",
+    "database.server.id": "1",
+    "database.include.list": "playground",
+    "table.include.list": "playground.items",
+    "tasks.max": "1",
+    "schema.history.internal.kafka.bootstrap.servers": "kafka-broker:29092",
+    "schema.history.internal.kafka.topic": "history.playgound",
+    "include.schema.changes": "false",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "topic.prefix": "debezium_playground_topic",
+    "snapshot.mode": "initial"
+  }
+}
