@@ -12,7 +12,9 @@ services:
       MYSQL_ROOT_PASSWORD: password
 
   debezium:
-    image: debezium/connect:2.4.1.Final
+    build:
+      context: .
+      dockerfile: ./debezium/Dockerfile
     container_name: debezium
     ports:
       - "8083:8083"
