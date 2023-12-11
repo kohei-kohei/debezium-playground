@@ -4,7 +4,17 @@
 
 データを追加する
 ```bash
-docker exec mysql mysql -u root -ppassword playground -e "INSERT INTO items (name) VALUE ('ジーパン');"
+docker exec mysql mysql -u root -ppassword playground -e "INSERT INTO items (name) VALUE ('Tシャツ');"
+```
+
+データを更新する
+```bash
+docker exec mysql mysql -u root -ppassword playground -e "UPDATE items SET name = 'ロングスリーブTシャツ' WHERE id = 1;"
+```
+
+データを削除する
+```bash
+docker exec mysql mysql -u root -ppassword playground -e "DELETE FROM items WHERE id = 1;"
 ```
 
 テーブルからデータを取得する
@@ -22,7 +32,7 @@ docker exec kafka-broker kafka-topics --list --bootstrap-server kafka-broker:909
 指定したトピックからメッセージを取得する
 ```bash
 docker exec kafka-broker kafka-console-consumer --bootstrap-server kafka-broker:9092 \
-       --from-beginning --topic debezium_playground_topic.playground.items
+       --topic debezium_playground_topic.playground.items --from-beginning
 ```
 
 ## Debezium
