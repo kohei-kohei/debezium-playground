@@ -20,6 +20,11 @@
     "key.converter": "org.apache.kafka.connect.json.JsonConverter",
     "key.converter.schemas.enable": "false",
     "topic.prefix": "debezium_playground_topic",
-    "snapshot.mode": "initial"
+    "snapshot.mode": "initial",
+    "transforms": "filter",
+    "transforms.filter.type": "io.debezium.transforms.Filter",
+    "transforms.filter.language": "jsr223.groovy",
+    "transforms.filter.condition": "value.op == 'c' || value.op == 'u'",
+    "tombstones.on.delete": "false"
   }
 }
